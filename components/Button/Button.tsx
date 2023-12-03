@@ -1,3 +1,5 @@
+import { twMerge } from 'tailwind-merge'
+
 type ButtonProps = {
   children: React.ReactNode
   purpose: 'primary' | 'secondary'
@@ -13,9 +15,14 @@ export default function Button({
 }: ButtonProps) {
   return (
     <button
-      className="rounded data-[size=sm]:px-2 data-[size=sm]:py-1 data-[size=md]:px-4 data-[size=md]:py-2 data-[size=lg]:px-4 data-[size=lg]:py-2 data-[purpose=primary]:bg-blue-500 data-[purpose=secondary]:bg-white-500 data-[purpose=primary]:text-white data-[purpose=secondary]:text-black data-[purpose=secondary]:border-2 data-[purpose=secondary]:border-black"
-      data-purpose={purpose}
-      data-size={size}
+      className={twMerge(
+        'rounded-lg py-2',
+        purpose === 'primary' && 'bg-blue-500 text-white',
+        purpose === 'secondary' && 'border-2 border-black text-black',
+        size === 'sm' && 'px-2  text-xs',
+        size === 'md' && 'px-4 text-sm',
+        size === 'lg' && 'px-6',
+      )}
       type={type}
     >
       {children}

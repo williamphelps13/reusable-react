@@ -12,15 +12,7 @@
     "typescript-sort-keys"
   ],
   "rules": {
-    "import/order": [
-      "error",
-      {
-        "newlines-between": "always",
-        "alphabetize": {
-          "order": "asc"
-        }
-      }
-    ],
+    "import/order": ["error"],
     "react/jsx-sort-props": [
       "error",
       {

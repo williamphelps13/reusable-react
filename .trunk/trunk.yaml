@@ -1,0 +1,28 @@
+version: 0.1
+cli:
+  version: 1.17.2
+plugins:
+  sources:
+    - id: trunk
+      ref: v1.3.0
+      uri: https://github.com/trunk-io/plugins
+runtimes:
+  enabled:
+    - node@>=20.9.0
+    - python@3.10.8
+lint:
+  enabled:
+    - eslint@8.54.0
+    - markdownlint@0.37.0
+    - osv-scanner@1.5.0 #vulnerability scanner
+    - prettier@3.1.0
+    - svgo@3.0.5 #svg optimizer
+    - trufflehog@3.63.2 #secrets scanner
+actions:
+  disabled:
+  enabled:
+    - trunk-check-pre-commit # Run 'trunk check' whenever you run 'git commit'
+    - trunk-fmt-pre-commit # Run 'trunk fmt' whenever you run 'git commit'
+    - trunk-check-pre-push # Run 'trunk check' whenever you run 'git push'
+    - npm-check-pre-push # Run 'npm check' whenever you run 'git push'
+    - trunk-upgrade-available # Check for upgrades to trunk

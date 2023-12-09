@@ -1,5 +1,11 @@
 import Link from 'next/link'
-import Button from '@/components/Button/Button'
+import { Button, Radio } from '@/components'
+
+const options = [
+  { label: 'Radio 1', value: 'radio-1' },
+  { label: 'Radio 2', value: 'radio-2' },
+  { label: 'Radio 3', value: 'radio-3' },
+]
 
 export default function Home() {
   return (
@@ -12,6 +18,7 @@ export default function Home() {
         <Link href="/somm">
           <Button>Get started</Button>
         </Link>
+        <Radio cId="test" options={options} />
       </div>
     </main>
   )

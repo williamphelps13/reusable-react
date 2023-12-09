@@ -24,5 +24,4 @@ actions:
     - trunk-check-pre-commit # Run 'trunk check' whenever you run 'git commit'
     - trunk-fmt-pre-commit # Run 'trunk fmt' whenever you run 'git commit'
     - trunk-check-pre-push # Run 'trunk check' whenever you run 'git push'
-    - npm-check-pre-push # Run 'npm check' whenever you run 'git push'
     - trunk-upgrade-available # Check for upgrades to trunk

@@ -1,6 +1,7 @@
 import { twMerge } from 'tailwind-merge'
 
 type LabelProps = {
+  cId: string
   children?: React.ReactNode
   isDisabled?: boolean
   isOptional?: boolean
@@ -8,6 +9,7 @@ type LabelProps = {
 
 export default function Label({
   children,
+  cId,
   isDisabled,
   isOptional,
 }: LabelProps) {
@@ -18,6 +20,8 @@ export default function Label({
           'text-sm text-gray-900',
           isDisabled && 'text-gray-500',
         )}
+        data-testid={`${cId}-label`}
+        htmlFor={cId}
       >
         {children}
       </label>
@@ -27,6 +31,8 @@ export default function Label({
             'text-xs text-gray-500',
             isDisabled && 'text-gray-400',
           )}
+          data-testid={`${cId}-optional-label`}
+          htmlFor={cId}
         >
           optional
         </label>

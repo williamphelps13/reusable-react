@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import ReactSlider from 'react-slider'
+import { twMerge } from 'tailwind-merge'
 
 import Label from '../Label/Label'
 import { stringToKebab } from '../utilities'
@@ -10,6 +11,7 @@ export type Marks = {
 
 type SliderProps = {
   cId: string
+  className?: string
   defaultValues?: number[]
   hasOptionalLabel?: boolean
   isPearling?: boolean
@@ -20,6 +22,7 @@ type SliderProps = {
 
 export default function Slider({
   cId,
+  className,
   defaultValues,
   hasOptionalLabel,
   isPearling,
@@ -34,13 +37,17 @@ export default function Slider({
       className="flex w-full flex-col space-y-4"
       data-testid={`${cId}-slider-container`}
     >
-      {label && <Label isOptional={hasOptionalLabel}>{label}</Label>}
+      {label && (
+        <Label cId={`${cId}-slider`} isOptional={hasOptionalLabel}>
+          {label}
+        </Label>
+      )}
       <ReactSlider
         ariaLabel={['Lower range thumb', 'Upper range thumb']}
         ariaValuetext={state =>
           `New range: ${state.value.map(mark => marks[mark]).join(' to ')}`
         }
-        className="flex h-2 items-center"
+        className={twMerge('flex h-2 items-center', className)}
         data-testid={`${cId}-slider`}
         defaultValue={defaultValues}
         marks={markPositions}

@@ -21,6 +21,7 @@ type Story = StoryObj<typeof meta>
 export const AllProps: Story = {
   args: {
     cId: 'slider',
+    className: '',
     defaultValues: [25, 75],
     label: 'Slider label',
     hasOptionalLabel: true,

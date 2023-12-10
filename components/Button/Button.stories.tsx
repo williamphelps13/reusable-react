@@ -12,7 +12,11 @@ type Story = StoryObj<typeof meta>
 
 export const AllProps: Story = {
   args: {
+    cId: 'sb',
     children: 'Button Text',
+    className: '',
+    isDisabled: false,
+    isLoading: false,
     purpose: 'primary',
     size: 'md',
     type: 'button',

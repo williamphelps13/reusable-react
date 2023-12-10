@@ -1,4 +1,5 @@
 import { twMerge } from 'tailwind-merge'
+import Label from '../Label/Label'
 
 type Option = {
   label: string
@@ -7,14 +8,24 @@ type Option = {
 
 type ComponentProps = {
   cId: string
+  className?: string
+  label?: string
   options: Option[]
 }
 
-export default function Component({ cId, options }: ComponentProps) {
+export default function Component({
+  cId,
+  className,
+  label,
+  options,
+}: ComponentProps) {
   return (
-    <fieldset className={twMerge()}>
+    <fieldset>
+      {label && <Label cId={`${cId}-radio`}>{label}</Label>}
       {options.map(({ value }) => (
         <input
+          className={twMerge(className)}
+          data-testid={`${cId}-${value}-radio`}
           id={`${cId}-${value}`}
           key={value}
           name={cId}

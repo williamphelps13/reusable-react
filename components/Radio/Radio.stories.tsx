@@ -18,7 +18,9 @@ type Story = StoryObj<typeof meta>
 
 export const AllProps: Story = {
   args: {
-    cId: 'storybook-radio',
+    cId: 'sb',
+    className: '',
+    label: 'What is your favorite radio?',
     options,
   },
   render: args => <Radio {...args} />,

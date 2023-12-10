@@ -1,5 +1,7 @@
 import { useMemo, useState } from 'react'
 import ReactSlider from 'react-slider'
+
+import Label from '../Label/Label'
 import { stringToKebab } from '../utilities'
 
 export type Marks = {
@@ -9,7 +11,9 @@ export type Marks = {
 type SliderProps = {
   cId: string
   defaultValues?: number[]
+  hasOptionalLabel?: boolean
   isPearling?: boolean
+  label?: string
   marks: Marks
   step?: number
 }
@@ -17,7 +21,9 @@ type SliderProps = {
 export default function Slider({
   cId,
   defaultValues,
+  hasOptionalLabel,
   isPearling,
+  label,
   marks,
   step,
 }: SliderProps) {
@@ -25,15 +31,16 @@ export default function Slider({
   const markPositions = useMemo(() => Object.keys(marks).map(Number), [marks])
   return (
     <div
-      className="flex flex-col w-full"
+      className="flex w-full flex-col space-y-4"
       data-testid={`${cId}-slider-container`}
     >
+      {label && <Label isOptional={hasOptionalLabel}>{label}</Label>}
       <ReactSlider
         ariaLabel={['Lower range thumb', 'Upper range thumb']}
         ariaValuetext={state =>
           `New range: ${state.value.map(mark => marks[mark]).join(' to ')}`
         }
-        className="h-2 flex items-center"
+        className="flex h-2 items-center"
         data-testid={`${cId}-slider`}
         defaultValue={defaultValues}
         marks={markPositions}
@@ -41,7 +48,7 @@ export default function Slider({
         renderMark={props => (
           <span
             {...props}
-            className={`h-4 w-4 bg-gray-300 hover:bg-gray-400 rounded-full cursor-pointer transition-colors ${
+            className={`h-4 w-4 cursor-pointer rounded-full bg-gray-300 transition-colors hover:bg-gray-400 ${
               (
                 sliderValue &&
                 (props?.key as number) >= sliderValue[0] &&
@@ -67,7 +74,7 @@ export default function Slider({
       <div className="flex justify-between">
         {Object.entries(marks).map(([key, value]) => (
           <label
-            className="text-sm mt-4 text-gray-400"
+            className="text-xs text-gray-500"
             data-testid={`${cId}-slider-${stringToKebab(value)}-label`}
             key={key}
           >

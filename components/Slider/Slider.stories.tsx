@@ -22,6 +22,8 @@ export const AllProps: Story = {
   args: {
     cId: 'slider',
     defaultValues: [25, 75],
+    label: 'Slider label',
+    hasOptionalLabel: true,
     isPearling: true,
     marks,
     step: 25,

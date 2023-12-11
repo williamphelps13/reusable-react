@@ -1,7 +1,6 @@
 import { useMemo, useState } from 'react'
 import ReactSlider from 'react-slider'
 import { twMerge } from 'tailwind-merge'
-
 import Label from '../Label/Label'
 import { stringToKebab } from '../utilities'
 

@@ -27,9 +27,9 @@ export default function Button({
       className={twMerge(
         'relative whitespace-nowrap rounded-lg py-2 transition-all disabled:cursor-not-allowed',
         purpose === 'primary' &&
-          'bg-blue-500 text-white shadow-md hover:bg-blue-500/90 hover:shadow-lg focus:ring-2 focus:ring-blue-800 focus-visible:outline-none active:bg-blue-600 disabled:bg-gray-300 disabled:shadow-none',
+          'bg-primary-500 text-least-contrast shadow-md hover:bg-primary-500/90 hover:shadow-lg focus:ring-2 focus:ring-primary-800 focus-visible:outline-none active:bg-primary-600 disabled:bg-neutral-300 disabled:shadow-none',
         purpose === 'secondary' &&
-          'border-2 border-gray-500 bg-white text-gray-900 hover:bg-gray-100 disabled:border-gray-300 disabled:text-gray-400 hover:disabled:bg-white',
+          'border-2 border-neutral-500 bg-least-contrast text-neutral-900 hover:bg-neutral-100 disabled:border-neutral-300 disabled:text-neutral-400 hover:disabled:bg-least-contrast',
         size === 'sm' && 'px-2 text-xs',
         size === 'md' && 'px-4 text-sm',
         size === 'lg' && 'px-6',

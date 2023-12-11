@@ -9,7 +9,7 @@ const preview: Preview = {
   },
   decorators: [
     Story => (
-      <div className="flex flex-col items-center p-16 border-2 border-gray-200">
+      <div className="flex flex-col items-center border-2 border-neutral-200 p-16">
         <Story />
       </div>
     ),

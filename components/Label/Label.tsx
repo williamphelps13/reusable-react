@@ -17,8 +17,8 @@ export default function Label({
     <div className="flex w-full items-center justify-between">
       <label
         className={twMerge(
-          'text-sm text-gray-900',
-          isDisabled && 'text-gray-500',
+          'text-sm text-neutral-900',
+          isDisabled && 'text-neutral-500',
         )}
         data-testid={`${cId}-label`}
         htmlFor={cId}
@@ -28,8 +28,8 @@ export default function Label({
       {isOptional && (
         <label
           className={twMerge(
-            'text-xs text-gray-500',
-            isDisabled && 'text-gray-400',
+            'text-xs text-neutral-500',
+            isDisabled && 'text-neutral-400',
           )}
           data-testid={`${cId}-optional-label`}
           htmlFor={cId}

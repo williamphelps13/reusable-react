@@ -9,14 +9,14 @@ const options = [
 
 export default function Home() {
   return (
-    <main className="w-screen h-screen bg-black flex flex-col justify-center items-center text-white">
+    <main className="flex h-screen w-screen flex-col items-center justify-center bg-most-contrast text-least-contrast">
       <div className="p-40">
-        <h1 className="text-6xl mb-4">Pocket Somm</h1>
-        <p className="text-2xl text-gray-50 mb-8">
+        <h1 className="mb-4 text-6xl">Pocket Somm</h1>
+        <p className="mb-8 text-2xl text-neutral-50">
           Wine recommendations right in your pocket.
         </p>
         <Link href="/somm">
-          <Button>Get started</Button>
+          <Button cId="get-started">Get started</Button>
         </Link>
         <Radio cId="test" options={options} />
       </div>

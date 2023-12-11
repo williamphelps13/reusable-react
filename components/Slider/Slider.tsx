@@ -55,14 +55,14 @@ export default function Slider({
         renderMark={props => (
           <span
             {...props}
-            className={`h-4 w-4 cursor-pointer rounded-full bg-gray-300 transition-colors hover:bg-gray-400 ${
+            className={`h-4 w-4 cursor-pointer rounded-full bg-neutral-300 hover:bg-neutral-400 ${
               (
                 sliderValue &&
                 (props?.key as number) >= sliderValue[0] &&
                 (props?.key as number) <= sliderValue[1]
               ) ?
-                '!bg-blue-400 hover:!bg-blue-500'
-              : 'bg-gray-300 hover:bg-gray-400'
+                '!bg-primary-400 hover:!bg-primary-500'
+              : 'bg-neutral-300 hover:bg-neutral-400'
             }`}
           />
         )}
@@ -70,18 +70,18 @@ export default function Slider({
           <div
             {...props}
             className={`h-2 rounded-full ${
-              state.index === 1 ? 'bg-blue-400' : 'bg-gray-300'
+              state.index === 1 ? 'bg-primary-400' : 'bg-neutral-300'
             }`}
           />
         )}
         step={step}
-        thumbClassName="h-6 w-4 bg-blue-600 cursor-pointer hover:bg-blue-700 transition-colors focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white rounded-sm"
+        thumbClassName="h-6 w-4 bg-primary-600 cursor-pointer hover:bg-primary-700 focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-least-contrast rounded-sm focus-visible:outline-none"
         onChange={value => setSliderValue(value)}
       />
       <div className="flex justify-between">
         {Object.entries(marks).map(([key, value]) => (
           <label
-            className="text-xs text-gray-500"
+            className="text-xs text-neutral-500"
             data-testid={`${cId}-slider-${stringToKebab(value)}-label`}
             key={key}
           >

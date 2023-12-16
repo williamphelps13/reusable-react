@@ -20,9 +20,11 @@ type Story = StoryObj<typeof meta>
 
 export const AllProps: Story = {
   args: {
-    cId: 'slider',
+    cId: 'sb',
     className: '',
+    color: 'primary',
     defaultValues: [25, 75],
+    isDisabled: false,
     label: 'Slider label',
     hasOptionalLabel: true,
     isPearling: true,

@@ -11,8 +11,10 @@ export type Marks = {
 type SliderProps = {
   cId: string
   className?: string
+  color?: 'primary' | 'secondary' | 'tertiary'
   defaultValues?: number[]
   hasOptionalLabel?: boolean
+  isDisabled?: boolean
   isPearling?: boolean
   label?: string
   marks: Marks
@@ -22,8 +24,10 @@ type SliderProps = {
 export default function Slider({
   cId,
   className,
+  color = 'primary',
   defaultValues,
   hasOptionalLabel,
+  isDisabled,
   isPearling,
   label,
   marks,
@@ -37,7 +41,11 @@ export default function Slider({
       data-testid={`${cId}-slider-container`}
     >
       {label && (
-        <Label cId={`${cId}-slider`} isOptional={hasOptionalLabel}>
+        <Label
+          cId={`${cId}-slider`}
+          isDisabled={isDisabled}
+          isOptional={hasOptionalLabel}
+        >
           {label}
         </Label>
       )}
@@ -46,22 +54,28 @@ export default function Slider({
         ariaValuetext={state =>
           `New range: ${state.value.map(mark => marks[mark]).join(' to ')}`
         }
-        className={twMerge('flex h-2 items-center', className)}
+        className={twMerge('group flex h-2 items-center', className)}
         data-testid={`${cId}-slider`}
         defaultValue={defaultValues}
+        disabled={isDisabled}
         marks={markPositions}
+        onChange={value => setSliderValue(value)}
         pearling={isPearling}
         renderMark={props => (
           <span
             {...props}
-            className={`h-4 w-4 cursor-pointer rounded-full bg-neutral-300 hover:bg-neutral-400 ${
+            className={`h-4 w-4 rounded-full ${
               (
                 sliderValue &&
                 (props?.key as number) >= sliderValue[0] &&
                 (props?.key as number) <= sliderValue[1]
               ) ?
-                '!bg-primary-400 hover:!bg-primary-500'
-              : 'bg-neutral-300 hover:bg-neutral-400'
+                !isDisabled ?
+                  `bg-${color}-400 hover:bg-${color}-500 cursor-pointer`
+                : 'cursor-not-allowed bg-neutral-400 hover:bg-neutral-400'
+              : !isDisabled ?
+                'cursor-pointer bg-neutral-300 hover:bg-neutral-400'
+              : 'cursor-not-allowed bg-neutral-200 hover:bg-neutral-200'
             }`}
           />
         )}
@@ -69,18 +83,27 @@ export default function Slider({
           <div
             {...props}
             className={`h-2 rounded-full ${
-              state.index === 1 ? 'bg-primary-400' : 'bg-neutral-300'
+              state.index === 1 ?
+                !isDisabled ? `bg-${color}-400`
+                : 'bg-neutral-400'
+              : !isDisabled ? 'bg-neutral-300'
+              : 'bg-neutral-200'
             }`}
           />
         )}
         step={step}
-        thumbClassName="h-6 w-4 bg-primary-600 cursor-pointer hover:bg-primary-700 focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-least-contrast rounded-sm focus-visible:outline-none"
-        onChange={value => setSliderValue(value)}
+        thumbClassName={`h-6 w-4 rounded-sm focus-visible:outline-none ${
+          !isDisabled ?
+            `bg-${color}-600 hover:bg-${color}-700 focus-visible:ring-${color}-500 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-least-contrast cursor-pointer`
+          : `bg-neutral-500 hover:bg-neutral-500 cursor-not-allowed`
+        }`}
       />
       <div className="flex justify-between">
         {Object.entries(marks).map(([key, value]) => (
           <label
-            className="text-xs text-neutral-500"
+            className={`text-xs ${
+              !isDisabled ? 'text-neutral-500' : 'text-neutral-400'
+            }`}
             data-testid={`${cId}-slider-${stringToKebab(value)}-label`}
             key={key}
           >

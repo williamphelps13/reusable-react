@@ -12,8 +12,8 @@ type Story = StoryObj<typeof meta>
 
 export const AllProps: Story = {
   args: {
-    cId: 'sb',
     children: 'Button Text',
+    cId: 'sb',
     className: '',
     isDisabled: false,
     isLoading: false,

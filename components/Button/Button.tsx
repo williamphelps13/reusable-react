@@ -2,8 +2,8 @@ import { twMerge } from 'tailwind-merge'
 import Loader from '../Loader/Loader'
 
 type ButtonProps = {
-  cId: string
   children: React.ReactNode
+  cId: string
   className?: string
   isDisabled?: boolean
   isLoading?: boolean

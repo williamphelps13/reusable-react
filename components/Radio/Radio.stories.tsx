@@ -21,6 +21,7 @@ export const AllProps: Story = {
     cId: 'sb',
     className: '',
     color: 'primary',
+    isDisabled: false,
     label: 'What is your favorite radio?',
     options,
   },

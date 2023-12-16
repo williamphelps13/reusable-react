@@ -1,37 +1,52 @@
 import { twMerge } from 'tailwind-merge'
 import Label from '../Label/Label'
 
-type Option = {
+export type Option = {
   label: string
   value: string
 }
 
-type ComponentProps = {
+type RadioProps = {
   cId: string
   className?: string
+  color?: 'primary' | 'secondary' | 'tertiary'
   label?: string
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
   options: Option[]
 }
 
-export default function Component({
+export default function Radio({
   cId,
   className,
+  color = 'primary',
   label,
+  onChange,
   options,
-}: ComponentProps) {
+}: RadioProps) {
   return (
-    <fieldset>
+    <fieldset className="flex w-full gap-2 rounded-xl bg-neutral-100 p-2">
       {label && <Label cId={`${cId}-radio`}>{label}</Label>}
-      {options.map(({ value }) => (
-        <input
-          className={twMerge(className)}
-          data-testid={`${cId}-${value}-radio`}
-          id={`${cId}-${value}`}
-          key={value}
-          name={cId}
-          type="radio"
-          value={value}
-        />
+      {options.map(({ label, value }, index) => (
+        <div className="flex flex-grow" key={`${cId}-${value}`}>
+          <input
+            aria-labelledby={`${cId}-radio-main-label ${cId}-radio-optional-label ${cId}-${value}-radio-label`}
+            className={twMerge('peer opacity-0', className)}
+            data-testid={`${cId}-${value}-radio`}
+            defaultChecked={index === 0}
+            id={`${cId}-${value}-radio`}
+            name={cId}
+            onChange={onChange}
+            type="radio"
+            value={value}
+          />
+          <label
+            className={`flex flex-grow cursor-pointer select-none justify-center rounded-xl p-2 text-neutral-500 transition-colors hover:bg-neutral-200 peer-checked:bg-${color}-600 peer-checked:text-least-contrast peer-focus:ring-${color}-500 peer-focus:ring-2 peer-focus:ring-offset-2 peer-focus:ring-offset-neutral-100`}
+            htmlFor={`${cId}-${value}-radio`}
+            id={`${cId}-${value}-radio-label`}
+          >
+            {label}
+          </label>
+        </div>
       ))}
     </fieldset>
   )

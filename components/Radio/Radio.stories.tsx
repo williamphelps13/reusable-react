@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import Radio from './Radio'
+import Radio, { type Option } from './Radio'
 
-const options = [
+const options: Option[] = [
   { label: 'Radio 1', value: 'radio-1' },
   { label: 'Radio 2', value: 'radio-2' },
   { label: 'Radio 3', value: 'radio-3' },
@@ -20,6 +20,7 @@ export const AllProps: Story = {
   args: {
     cId: 'sb',
     className: '',
+    color: 'primary',
     label: 'What is your favorite radio?',
     options,
   },

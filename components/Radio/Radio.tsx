@@ -1,4 +1,5 @@
 import { twMerge } from 'tailwind-merge'
+
 import Label from '../Label/Label'
 
 export type Option = {

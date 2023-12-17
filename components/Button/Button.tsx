@@ -1,4 +1,5 @@
 import { twMerge } from 'tailwind-merge'
+
 import Icon, { type IconNames } from '../Icon/Icon'
 import Loader from '../Loader/Loader'
 

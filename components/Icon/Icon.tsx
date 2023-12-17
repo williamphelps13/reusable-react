@@ -1,4 +1,5 @@
 import { twMerge } from 'tailwind-merge'
+
 import { iconMap } from './iconMap'
 
 export type IconNames = keyof typeof iconMap

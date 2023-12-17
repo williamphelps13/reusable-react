@@ -1,6 +1,7 @@
 import { twMerge } from 'tailwind-merge'
-import Loader from '../Loader/Loader'
+
 import Icon, { type IconNames } from '../Icon/Icon'
+import Loader from '../Loader/Loader'
 
 type IconButtonProps = {
   cId: string

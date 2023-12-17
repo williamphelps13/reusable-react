@@ -1,7 +1,7 @@
 import { twMerge } from 'tailwind-merge'
 
 type LabelProps = {
-  children?: React.ReactNode
+  children: React.ReactNode
   cId: string
   className?: string
   isDisabled?: boolean

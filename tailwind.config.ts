@@ -1,55 +1,14 @@
 import type { Config } from 'tailwindcss'
 
+import { tailwindSafelist } from './tailwind-safelist'
+
 const config: Config = {
   content: [
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './.storybook/preview.tsx',
   ],
-  safelist: [
-    //slider conditional color
-    'active:bg-danger-600',
-    'active:bg-primary-600',
-    'active:text-danger-600',
-    'active:text-neutral-600',
-    'active:text-primary-600',
-    'bg-danger-500',
-    'bg-primary-400',
-    'bg-primary-500',
-    'bg-primary-600',
-    'bg-secondary-400',
-    'bg-secondary-600',
-    'bg-tertiary-400',
-    'bg-tertiary-600',
-    'text-danger-500',
-    'text-neutral-500',
-    'text-primary-500',
-    'hover:bg-primary-500',
-    'hover:bg-secondary-500',
-    'hover:bg-tertiary-500',
-    'hover:bg-danger-500/90',
-    'hover:bg-primary-500/90',
-    'hover:text-danger-500/70',
-    'hover:text-neutral-500/70',
-    'hover:text-primary-500/70',
-    'hover:bg-primary-700',
-    'hover:bg-secondary-700',
-    'hover:bg-tertiary-700',
-    'focus:ring-danger-600',
-    'focus:ring-danger-800',
-    'focus:ring-neutral-600',
-    'focus:ring-primary-600',
-    'focus:ring-primary-800',
-    'focus-visible:ring-primary-500',
-    'focus-visible:ring-secondary-500',
-    'focus-visible:ring-tertiary-500',
-    'peer-focus:ring-primary-500',
-    'peer-focus:ring-secondary-500',
-    'peer-focus:ring-tertiary-500',
-    'peer-checked:bg-primary-600',
-    'peer-checked:bg-secondary-600',
-    'peer-checked:bg-tertiary-600',
-  ],
+  safelist: tailwindSafelist,
   theme: {
     colors: {
       transparent: 'transparent',

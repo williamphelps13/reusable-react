@@ -4,19 +4,16 @@
 import { twMerge } from 'tailwind-merge'
 
 type ComponentProps = {
-
+  cId: string,
+  className: string,
 }
 
-export default function Component({
-
-}: ComponentProps) {
+export default function Component({ cId, className }: ComponentProps) {
   return (
     <div
-      className={twMerge(
-        'shared styles',
-        condition && 'conditional style'
-      )}
-    />
+      className={twMerge()}
+    >
+    </div>
   )
 }
 ```

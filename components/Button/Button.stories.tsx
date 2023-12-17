@@ -15,6 +15,8 @@ export const AllProps: Story = {
     children: 'Button Text',
     cId: 'sb',
     className: '',
+    iconName: 'plus',
+    iconPlacement: 'left',
     isDisabled: false,
     isLoading: false,
     purpose: 'primary',

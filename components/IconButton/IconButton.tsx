@@ -4,6 +4,7 @@ import Icon, { type IconNames } from '../Icon/Icon'
 import Loader from '../Loader/Loader'
 
 type IconButtonProps = {
+  ariaLabel?: string
   cId: string
   className?: string
   isDisabled?: boolean
@@ -15,6 +16,7 @@ type IconButtonProps = {
 }
 
 export default function IconButton({
+  ariaLabel,
   cId,
   className,
   isDisabled,
@@ -26,8 +28,9 @@ export default function IconButton({
 }: IconButtonProps) {
   return (
     <button
+      aria-label={ariaLabel}
       className={twMerge(
-        `group relative rounded-md p-1 transition focus:ring-2 focus:ring-${purpose}-600 focus-visible:outline-none disabled:cursor-not-allowed disabled:text-neutral-300`,
+        `group relative rounded-sm p-1 transition focus:ring-2 focus:ring-${purpose}-600 focus-visible:outline-none disabled:cursor-not-allowed disabled:text-neutral-300`,
         className,
       )}
       data-testid={`${cId}-icon-button`}
@@ -52,7 +55,6 @@ export default function IconButton({
             isLoading ? 'opacity-0' : 'opacity-100'
           }`,
           purpose && `hover:text-${purpose}-500/70 active:text-${purpose}-600`,
-          !purpose && 'hover:text-current active:text-current',
         )}
         name={name}
         purpose={purpose}

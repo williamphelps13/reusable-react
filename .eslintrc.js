@@ -1,14 +1,12 @@
 module.exports = {
-  extends: ['next/core-web-vitals', 'plugin:storybook/recommended'],
+  extends: ['plugin:storybook/recommended'],
   plugins: [
-    'simple-import-sort',
     'react',
+    'simple-import-sort',
     'sort-destructure-keys',
     'typescript-sort-keys',
   ],
   rules: {
-    'simple-import-sort/imports': 'error',
-    'simple-import-sort/exports': 'error',
     'react/jsx-sort-props': [
       'error',
       {
@@ -16,6 +14,8 @@ module.exports = {
         ignoreCase: true,
       },
     ],
+    'simple-import-sort/imports': 'error',
+    'simple-import-sort/exports': 'error',
     'sort-destructure-keys/sort-destructure-keys': [
       2,
       {

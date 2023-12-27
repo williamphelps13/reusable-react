@@ -16,7 +16,7 @@ export const AllProps: Story = {
     cId: 'sb',
     className: '',
     color: 'neutral',
-    iconButtonAriaLabel: 'Open in new browser tab',
+    iconButtonAriaLabel: 'Open in new window',
     iconButtonType: undefined,
   },
   render: args => <Badge {...args} />,

@@ -3,11 +3,7 @@ import type { Config } from 'tailwindcss'
 import { tailwindSafelist } from './tailwind-safelist'
 
 const config: Config = {
-  content: [
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './.storybook/preview.tsx',
-  ],
+  content: ['./.storybook/preview.tsx', './src/**/*.{ts,tsx,mdx}'],
   safelist: tailwindSafelist,
   theme: {
     colors: {

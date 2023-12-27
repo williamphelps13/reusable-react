@@ -40,7 +40,7 @@ export default function Button({
           '!p-1 text-neutral-900 hover:text-neutral-600 focus:ring-neutral-800 active:text-neutral-900 disabled:text-neutral-400',
         size === 'sm' && 'px-2 text-xs',
         size === 'md' && 'px-4 text-sm',
-        size === 'lg' && 'px-6',
+        size === 'lg' && 'px-6 text-base',
         className,
       )}
       data-testid={`${cId}-button`}

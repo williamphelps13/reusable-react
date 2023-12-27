@@ -22,7 +22,7 @@ export default function Badge({
   return (
     <span
       className={twMerge(
-        `bg-${color}-50 text-${color}-600 ring-${color}-500/10 inline-flex items-center gap-1 rounded-md px-2 py-1 text-xs ring-1 ring-inset`,
+        `bg-${color}-50 text-${color}-600 ring-${color}-500/10 inline-flex items-center gap-1 rounded-md px-2 py-1 text-xs font-medium ring-1 ring-inset`,
         className,
       )}
       data-testid={`${cId}-badge`}

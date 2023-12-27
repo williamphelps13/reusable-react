@@ -17,7 +17,7 @@ export const AllProps: Story = {
     className: '',
     iconName: 'plus',
     iconPlacement: 'left',
-    isDisabled: true,
+    isDisabled: false,
     isLoading: false,
     purpose: 'primary',
     size: 'md',

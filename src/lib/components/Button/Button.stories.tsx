@@ -18,7 +18,7 @@ export const AllProps: Story = {
     iconName: 'plus',
     iconPlacement: 'left',
     isDisabled: false,
-    isLoading: true,
+    isLoading: false,
     purpose: 'primary',
     size: 'md',
     type: 'button',
